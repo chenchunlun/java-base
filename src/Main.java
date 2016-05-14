@@ -1,8 +1,10 @@
-import io.StreamTest;
+import io.ByteStream;
+import io.CharStream;
 
 public class Main {
 
     public static void main(String[] args) {
-        StreamTest.test();
+        // ByteStream.test();
+        CharStream.test();
     }
 }

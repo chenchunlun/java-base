@@ -3,14 +3,14 @@ package io;
 import java.io.*;
 
 /**
- *测试输入流
+ * 字节流(节点流File为例)
  */
-public class StreamTest {
+public class ByteStream {
     public static void test(){
         //inputStream();
         //outStream();
         //copyFile();
-        copyDir();
+        //copyDir();
     }
 
     /**
@@ -77,8 +77,8 @@ public class StreamTest {
      * 文件拷贝
      */
     public static void copyFile(){
-        File src = new File("F:/ideaProjects/java-base/src/io/StreamTest.java");
-        File dest = new File("F:/StreamTest.java");
+        File src = new File("F:/ideaProjects/java-base/src/io/ByteStream.java");
+        File dest = new File("F:/ByteStream.java");
         if(dest.exists()){
             dest.delete();
         }
@@ -159,7 +159,7 @@ public class StreamTest {
      */
     public static void inputStream(){
         // 建立与文件的联系
-        File file = new File("F:/ideaProjects/java-base/src/io/StreamTest.java");
+        File file = new File("F:/ideaProjects/java-base/src/io/ByteStream.java");
         InputStream inputStream = null;
         try {
             // 创建节点流
