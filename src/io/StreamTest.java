@@ -10,6 +10,67 @@ public class StreamTest {
         //inputStream();
         //outStream();
         //copyFile();
+        copyDir();
+    }
+
+    /**
+     *文件夹拷贝
+     */
+    public static void copyDir(){
+        copyTool(new File("F:\\ideaProjects\\java-base"),"F:");
+    }
+
+    private static void copyTool(File src,String basePath){
+        if(src==null || !src.exists()){
+            return;
+        }
+        File dest = new File(basePath+File.separator+src.getName());
+        if(src.isDirectory()){
+            if(dest.exists()){
+                dest.delete();
+            }
+            dest.mkdirs();
+            File[] childFiles = src.listFiles();
+            for(File child : childFiles){
+                copyTool(child,dest.getAbsolutePath());
+            }
+        } else {
+            if(dest.exists()){
+                dest.delete();
+            }
+            InputStream inputStream= null;
+            OutputStream outputStream= null;
+            try {
+                dest.createNewFile();
+                if(dest.isFile()) {
+                    inputStream = new FileInputStream(src);
+                    outputStream = new FileOutputStream(dest);
+                    byte[] bytes = new byte[1024];
+                    int len = -1;
+                    while (-1 != (len = inputStream.read(bytes))) {
+                        outputStream.write(bytes, 0, len);
+                    }
+                    outputStream.flush();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if(outputStream != null){
+                    try {
+                        outputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(inputStream != null){
+                    try {
+                        inputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -124,9 +185,6 @@ public class StreamTest {
                     e.printStackTrace();
                 }
             }
-
         }
-
-        System.out.println(file.getAbsoluteFile());
     }
 }
