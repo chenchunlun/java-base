@@ -1,6 +1,7 @@
 package io;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Created by hp on 2016/5/15 0015.
@@ -12,7 +13,55 @@ public class ProcessStream {
         //stringCode();
         //tranStream();
          //dataOutStream();
-        dataInputStream();
+       // dataInputStream();
+        objectOutputStream();
+        objectInputStream();
+    }
+
+    /**
+     * 反序列化
+     */
+    public static void objectInputStream(){
+        File f = new File("F:/test.txt");
+        ObjectInputStream objectInputStream = null;
+        try {
+            objectInputStream = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+            System.out.println((Employee)objectInputStream.readObject());
+            System.out.println(Arrays.toString((int[])objectInputStream.readObject()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 序列化
+     */
+    public static void objectOutputStream(){
+        File f = new File("F:/test.txt");
+        if(f.exists()){
+            f.delete();
+        }
+        ObjectOutputStream objectOutputStream = null;
+        try {
+            f.createNewFile();
+            objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(f)));
+            objectOutputStream.writeObject(new Employee("张三",100000));
+            objectOutputStream.writeObject(new int[]{1,2,3});
+            objectOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(objectOutputStream!=null){
+                try {
+                    objectOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public static void dataInputStream(){
@@ -201,5 +250,39 @@ public class ProcessStream {
                 }
             }
         }
+    }
+}
+
+class Employee implements Serializable {
+    private transient String name;
+    private double salary;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
+
+    public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
     }
 }
