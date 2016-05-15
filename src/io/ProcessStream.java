@@ -8,7 +8,29 @@ import java.io.*;
 public class ProcessStream {
     public static void test(){
        // bufferdInputStream();
-        bufferedReader();
+       // bufferedReader();
+        stringCode();
+    }
+
+    /**
+     * 字符串编码
+     */
+    public static void stringCode(){
+        try {
+            String str = "中国";
+            byte[] bytes = str.getBytes();
+            System.out.println(new String(bytes));
+            System.out.println(new String(str.getBytes("gbk")));
+
+            System.out.println("*********************************");
+            str = new String("中国".getBytes("gbk"));
+
+            bytes = str.getBytes("gbk");
+            System.out.println(new String(bytes));
+            System.out.println(new String(str.getBytes("gbk")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
 
