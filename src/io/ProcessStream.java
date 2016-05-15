@@ -9,8 +9,53 @@ public class ProcessStream {
     public static void test(){
        // bufferdInputStream();
        // bufferedReader();
-        stringCode();
+        //stringCode();
+        tranStream();
     }
+
+    /**
+     * 转换流(字节流转字符流 解决乱码问题)
+     */
+    public static void tranStream(){
+        File src = new File("F:/ideaProjects/java-base/src/io/ProcessStream.java");
+        File dest = new File("F:/ProcessStream.java");
+        InputStreamReader reader = null;
+        OutputStreamWriter writer= null;
+
+        try {
+            reader = new InputStreamReader(new FileInputStream(src),"gbk");
+            writer = new OutputStreamWriter(new FileOutputStream(dest),"utf-8");
+            char[] buff = new char[1024];
+            int len = -1;
+            while (-1!=(len=reader.read(buff))){
+                String str = new String(buff,0,len);
+                writer.write(buff,0,len);
+            }
+            writer.flush();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(writer !=null){
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(reader != null){
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 
     /**
      * 字符串编码
