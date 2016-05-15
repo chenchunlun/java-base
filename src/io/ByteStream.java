@@ -11,7 +11,49 @@ public class ByteStream {
         //outStream();
         //copyFile();
         //copyDir();
+       // arrayInputStream();
+        arrayOutputStream();
     }
+
+    public static  void arrayOutputStream(){
+        byte[] dest = null;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] info = "这是一个测试".getBytes();
+        outputStream.write(info,0,info.length);
+        dest = outputStream.toByteArray();
+        if(outputStream!=null){
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(new String(dest));
+
+    }
+    public static void arrayInputStream(){
+        String src = "这是一个测试";
+        InputStream inputStream = new BufferedInputStream(new ByteArrayInputStream(src.getBytes()));
+        byte[] flu = new byte[1024];
+        int len = -1;
+        try {
+            while(-1!=(len= inputStream.read(flu))){
+                System.out.print(new String(flu,0,len));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if(inputStream != null){
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
 
     /**
      *文件夹拷贝
