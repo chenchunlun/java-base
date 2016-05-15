@@ -5,8 +5,8 @@ import io.ProcessStream;
 public class Main {
 
     public static void main(String[] args) {
-         ByteStream.test();
+        // ByteStream.test();
         //CharStream.test();
-       // ProcessStream.test();
+        ProcessStream.test();
     }
 }

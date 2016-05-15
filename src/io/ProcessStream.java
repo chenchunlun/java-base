@@ -10,7 +10,57 @@ public class ProcessStream {
        // bufferdInputStream();
        // bufferedReader();
         //stringCode();
-        tranStream();
+        //tranStream();
+         //dataOutStream();
+        dataInputStream();
+    }
+
+    public static void dataInputStream(){
+        DataInputStream dataInputStream = null;
+        try {
+            dataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(new File("F:/test.txt"))));
+            System.out.println(dataInputStream.readUTF());
+            System.out.println(dataInputStream.readLong());
+            System.out.println(dataInputStream.readDouble());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 数据输入流 ：保存数据类型（基本数据类型）和数据
+     */
+    public static void dataOutStream(){
+        String str = "测试";
+        long num = 100L;
+        double d = 2.14;
+        DataOutputStream dataOutputStream = null;
+        File f = new File("F:/test.txt");
+        try {
+            if(f.exists()){
+                f.delete();
+            }
+            f.createNewFile();
+            dataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(f)));
+            dataOutputStream.writeUTF(str);
+            dataOutputStream.writeLong(num);
+            dataOutputStream.writeDouble(d);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(dataOutputStream!=null){
+                try {
+                    dataOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     /**
