@@ -13,6 +13,6 @@ public class Main {
         //ProcessStream.test();
         //RandomAccess.test();
         //DecoratorPattern.test();
-        MyThread.test();
+        //MyThread.test();
     }
 }

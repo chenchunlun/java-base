@@ -4,7 +4,7 @@ package thread;
  * 多线程
  */
 public class MyThread {
-    public static void test(){
+   public void startThread01(){
         new Turtle().start();
         new Rabbit().start();
     }
@@ -19,7 +19,7 @@ class Turtle extends Thread {
         for(int i = 0;i<10;i++){
             System.out.println("乌龟爬");
             try {
-                Thread.sleep(1);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -33,7 +33,7 @@ class Rabbit extends Thread{
         for(int i = 0;i<10;i++){
             System.out.println("兔子跑-----------");
             try {
-                Thread.sleep(1);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
