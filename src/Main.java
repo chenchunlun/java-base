@@ -1,3 +1,4 @@
+import designmode.DecoratorPattern;
 import io.ByteStream;
 import io.CharStream;
 import io.ProcessStream;
@@ -9,6 +10,7 @@ public class Main {
         // ByteStream.test();
         //CharStream.test();
         //ProcessStream.test();
-        RandomAccess.test();
+        //RandomAccess.test();
+        DecoratorPattern.test();
     }
 }
