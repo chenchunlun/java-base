@@ -1,8 +1,10 @@
 import designmode.DecoratorPattern;
+import designmode.Singleton;
 import io.ByteStream;
 import io.CharStream;
 import io.ProcessStream;
 import io.RandomAccess;
+import org.omg.SendingContext.RunTime;
 import thread.MyThread;
 import thread.SynThread;
 
@@ -15,6 +17,7 @@ public class Main {
         //RandomAccess.test();
         //DecoratorPattern.test();
         //MyThread.test();
-        SynThread.test();
+        // SynThread.test();
+        Singleton.test();
     }
 }
