@@ -4,6 +4,7 @@ import io.CharStream;
 import io.ProcessStream;
 import io.RandomAccess;
 import thread.MyThread;
+import thread.SynThread;
 
 public class Main {
 
@@ -14,5 +15,6 @@ public class Main {
         //RandomAccess.test();
         //DecoratorPattern.test();
         //MyThread.test();
+        SynThread.test();
     }
 }
