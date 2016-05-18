@@ -9,6 +9,7 @@ import org.omg.SendingContext.RunTime;
 import thread.DeallockThread;
 import thread.MyThread;
 import thread.SynThread;
+import thread.TimerThread;
 
 public class Main {
 
@@ -22,6 +23,7 @@ public class Main {
         // SynThread.test();
         //Singleton.test();
         //DeallockThread.test();
-        ProducerConsumer.test();
+        // ProducerConsumer.test();
+        TimerThread.test();
     }
 }
