@@ -1,4 +1,5 @@
 import designmode.DecoratorPattern;
+import designmode.ProducerConsumer;
 import designmode.Singleton;
 import io.ByteStream;
 import io.CharStream;
@@ -20,6 +21,7 @@ public class Main {
         //MyThread.test();
         // SynThread.test();
         //Singleton.test();
-        DeallockThread.test();
+        //DeallockThread.test();
+        ProducerConsumer.test();
     }
 }
