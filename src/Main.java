@@ -1,6 +1,7 @@
 import designmode.DecoratorPattern;
 import designmode.ProducerConsumer;
 import designmode.Singleton;
+import dll.NativeHello;
 import io.ByteStream;
 import io.CharStream;
 import io.ProcessStream;
@@ -24,6 +25,7 @@ public class Main {
         //Singleton.test();
         //DeallockThread.test();
         // ProducerConsumer.test();
-        TimerThread.test();
+        //TimerThread.test();
+        NativeHello.test();
     }
 }
