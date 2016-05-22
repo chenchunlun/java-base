@@ -6,6 +6,7 @@ import io.ByteStream;
 import io.CharStream;
 import io.ProcessStream;
 import io.RandomAccess;
+import net.InetAddress01;
 import org.omg.SendingContext.RunTime;
 import thread.DeallockThread;
 import thread.MyThread;
@@ -26,6 +27,7 @@ public class Main {
         //DeallockThread.test();
         // ProducerConsumer.test();
         //TimerThread.test();
-        NativeHello.test();
+        //NativeHello.test();
+        InetAddress01.test();
     }
 }
