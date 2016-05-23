@@ -30,6 +30,6 @@ public class Main {
         //TimerThread.test();
         //NativeHello.test();
         //InetAddress01.test();
-        //Datagram.test();
+        Datagram.test();
     }
 }
