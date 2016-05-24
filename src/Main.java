@@ -8,6 +8,7 @@ import io.ProcessStream;
 import io.RandomAccess;
 import net.Datagram;
 import net.InetAddress01;
+import net.tcp.Test;
 import org.omg.SendingContext.RunTime;
 import thread.DeallockThread;
 import thread.MyThread;
@@ -30,6 +31,7 @@ public class Main {
         //TimerThread.test();
         //NativeHello.test();
         //InetAddress01.test();
-        Datagram.test();
+        //Datagram.test();
+        Test.test();
     }
 }
