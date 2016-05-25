@@ -32,6 +32,7 @@ public class Main {
         //NativeHello.test();
         //InetAddress01.test();
         //Datagram.test();
-        Test.test();
+        //Test.test();
+        security.Test.test();
     }
 }
