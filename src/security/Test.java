@@ -5,11 +5,16 @@ package security;
  */
 public class Test {
     public static void test(){
-        DES des = new DES();
+        SymmetricCipher symmetricCipher = null;
+        try {
+            symmetricCipher = new SymmetricCipher(SymmetricCipher.DESEDE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String plainStr = "测试DES加密算法";
-        byte[] cipherByte = des.enCrytor(plainStr.getBytes());
+        byte[] cipherByte = symmetricCipher.enCrytor(plainStr.getBytes());
         System.out.println(new String(cipherByte));
-        System.out.println(new String(des.deCrytor(cipherByte)));
+        System.out.println(new String(symmetricCipher.deCrytor(cipherByte)));
 
     }
 }
