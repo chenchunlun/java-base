@@ -22,5 +22,17 @@ public class Test {
                 Client.test();
             }
         },"client:").start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Client.test();
+            }
+        },"client:").start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Client.test();
+            }
+        },"client:").start();
     }
 }

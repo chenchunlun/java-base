@@ -14,15 +14,17 @@ public class Server {
     public static void test(){
         try {
             ServerSocket server = new ServerSocket(8080);
-            Socket socket = server.accept();
-            System.out.println(Thread.currentThread().getName()+"一个客户端建立连接");
+            while(true) {
+                Socket socket = server.accept();
+                System.out.println(Thread.currentThread().getName() + "一个客户端建立连接");
            /* BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             bw.write("这是一个测试");
             bw.newLine();
             bw.flush();*/
-            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-            dos.writeUTF("测试");
-            dos.flush();
+                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+                dos.writeUTF("测试");
+                dos.flush();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
