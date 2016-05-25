@@ -8,31 +8,15 @@ public class Test {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Server.test();
+                net.tcp.chat_room.Server.test();
             }
-        },"server:").start();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        },"net.tcp.chat_room.Server:").start();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Client.test();
+                net.tcp.chat_room.Client.test();
             }
-        },"client:").start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Client.test();
-            }
-        },"client:").start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Client.test();
-            }
-        },"client:").start();
+        },"用户1:").start();
     }
 }
