@@ -2,21 +2,19 @@ package security;
 
 import javax.crypto.*;
 import java.security.InvalidKeyException;
+import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * 对称密码体制
+ * 加密工具类（基于JDK）
+ * 支持对称加密算法(DES、DESEDE、AES)和非对称加密算法(RSA)
  */
 public class SymmetricCipher {
 
     public static final String DES = "DES";
     public static final String DESEDE = "DESede";
     public static final String AES = "AES";
-
-    // 密钥生成器
-    private KeyGenerator keyGenerator;
-    // 负责保存密钥
-    private SecretKey secretKey;
+    public static final String RSA = "RSA";
     // 负责加密
     private Cipher cipher;
 
@@ -25,12 +23,10 @@ public class SymmetricCipher {
     }
 
     public SymmetricCipher(String arithmetic) throws Exception {
-        if(!DES.equals(arithmetic) && !DESEDE.equals(arithmetic) && !AES.equals(arithmetic)){
+        if (!DES.equals(arithmetic) && !DESEDE.equals(arithmetic) && !AES.equals(arithmetic) && !arithmetic.equals(RSA)) {
             throw new Exception("no such arithmetic exception");
         }
         try {
-            keyGenerator = KeyGenerator.getInstance(arithmetic);
-            secretKey = keyGenerator.generateKey();
             cipher = Cipher.getInstance(arithmetic);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -45,7 +41,7 @@ public class SymmetricCipher {
      * @param plaintext 明文字节数组
      * @return
      */
-    public byte[] enCrytor(byte[] plaintext) {
+    public byte[] enCrytor(byte[] plaintext, Key secretKey) {
         try {
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
             return cipher.doFinal(plaintext);
@@ -67,7 +63,7 @@ public class SymmetricCipher {
      * @param ciphertext 密文字节数组
      * @return
      */
-    public byte[] deCrytor(byte[] ciphertext) {
+    public byte[] deCrytor(byte[] ciphertext, Key secretKey) {
         try {
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
             return cipher.doFinal(ciphertext);
