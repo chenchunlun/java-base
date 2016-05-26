@@ -10,7 +10,7 @@ public class Test {
             public void run() {
                 net.tcp.chat_room.Server.test();
             }
-        },"net.tcp.chat_room.Server:").start();
+        },"Server:").start();
 
         new Thread(new Runnable() {
             @Override
