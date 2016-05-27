@@ -1,20 +1,3 @@
-import designmode.DecoratorPattern;
-import designmode.ProducerConsumer;
-import designmode.Singleton;
-import dll.NativeHello;
-import io.ByteStream;
-import io.CharStream;
-import io.ProcessStream;
-import io.RandomAccess;
-import net.Datagram;
-import net.InetAddress01;
-import net.tcp.Test;
-import org.omg.SendingContext.RunTime;
-import thread.DeallockThread;
-import thread.MyThread;
-import thread.SynThread;
-import thread.TimerThread;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -33,6 +16,7 @@ public class Main {
         //InetAddress01.test();
         //Datagram.test();
         //Test.test();
-        security.Test.test();
+        //security.Test.test();
+        reflection.Test.test();
     }
 }
