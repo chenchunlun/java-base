@@ -17,6 +17,15 @@ public class User {
         this.uname = uname;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", age=" + age +
+                ", uname='" + uname + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
