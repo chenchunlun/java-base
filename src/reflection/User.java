@@ -1,9 +1,21 @@
 package reflection;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Administrator on 2016-5-27.
  */
 public class User {
+
+    public void test(Map<String,User> map, List<Integer> list){
+        System.out.println("123");
+    }
+    public Map<Integer,User> test(){
+        System.out.println("123");
+        return null;
+    }
     private int id;
     private int age;
     private String uname;

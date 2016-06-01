@@ -1,15 +1,47 @@
 package reflection;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016-5-27.
  */
 public class Test {
     public static void test(){
+        String path = "reflection.User";
+        try {
+            Class<?> clazz = Class.forName(path);
+
+            Method m = clazz.getDeclaredMethod("test",Map.class,List.class);
+            m = clazz.getDeclaredMethod("test");
+            Type[] types = m.getGenericParameterTypes();
+            for(Type type :types){
+                if(type instanceof ParameterizedType) {
+                    Type[] ts = ((ParameterizedType) type).getActualTypeArguments() ;
+                    System.out.println(type);
+                    for(Type t:ts){
+                        System.out.println(t);
+                    }
+                }
+            }
+            Type type = m.getGenericReturnType();
+            System.out.println(type);
+            if(type instanceof ParameterizedType) {
+                Type[] types1 = ((ParameterizedType) type).getActualTypeArguments();
+                for (Type t : types1) {
+                    System.out.println(t);
+                }
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void reflectionTest(){
         String path = "reflection.User";
         try {
             Class<?> clazz = Class.forName(path);
