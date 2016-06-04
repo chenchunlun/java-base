@@ -7,6 +7,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 2016-5-27.
  */
+@TestAnnotation("test")
 public class User {
 
     public void test(Map<String,User> map, List<Integer> list){

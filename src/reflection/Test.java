@@ -1,5 +1,6 @@
 package reflection;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,23 @@ import java.util.Map;
  */
 public class Test {
     public static void test(){
+        String path = "reflection.User";
+        try {
+            Class<?> clazz = Class.forName(path);
+            Annotation[] as = clazz.getAnnotations();
+            for(Annotation a :as){
+               System.out.println(((TestAnnotation)a) .value());
+            }
+
+            System.out.println(clazz.getAnnotation(TestAnnotation.class));
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void Generic(){
         String path = "reflection.User";
         try {
             Class<?> clazz = Class.forName(path);
