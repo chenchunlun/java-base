@@ -17,6 +17,7 @@ public class Main {
         //Datagram.test();
         //Test.test();
         //security.Test.test();
-        reflection.Test.test();
+        //reflection.Test.test();
+        jdbc.Test.test();
     }
 }
