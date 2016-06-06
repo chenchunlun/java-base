@@ -1,23 +1,48 @@
 package jdbc;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by hp on 2016/6/4 0004.
  */
 public class Test {
-    public static void test (){
+    public static void test() {
+        Connection con = JDBCUtils.getCon();
+        System.out.println(con);
+
+        for(Object[] objArray:JDBCUtils.resultSetToObject()){
+            for(Object obj:objArray){
+                System.out.print(obj+"   ");
+            }
+            System.out.println();
+        }
+
+        for(Map<String,Object>map:JDBCUtils.resultSetToMap()){
+            for(Iterator<Map.Entry<String,Object>> iterator = map.entrySet().iterator() ;iterator.hasNext();){
+                Map.Entry entry = iterator.next();
+                System.out.print(entry.getKey()+":"+entry.getValue()+"   ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void test01() {
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             long start = System.currentTimeMillis();
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ybwh","root","qazwsx");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ybwh", "root", "qazwsx");
             long end = System.currentTimeMillis();
             System.out.println(con);
-            System.out.println(end-start);
+            System.out.println(end - start);
 
             System.out.println("**********************************************");
 
@@ -87,15 +112,15 @@ public class Test {
             preparedStatement.executeUpdate();
             preparedStatement.close();*/
             PreparedStatement preparedStatement = con.prepareStatement("select * from  general_rule");
-             ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()){
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
                 InputStream r = rs.getBlob("type").getBinaryStream();
                 OutputStream os = new FileOutputStream("d:\\1.jpg");
                 byte[] c = new byte[1024];
                 int len = -1;
-                while(-1!=(len=r.read(c))){
-                    System.out.print(new String(c,0,len));
-                    os.write(c,0,len);
+                while (-1 != (len = r.read(c))) {
+                    System.out.print(new String(c, 0, len));
+                    os.write(c, 0, len);
                 }
                 os.close();
                 r.close();
@@ -103,11 +128,6 @@ public class Test {
             }
             preparedStatement.close();
             con.close();
-
-
-
-
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
