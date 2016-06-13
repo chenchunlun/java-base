@@ -18,6 +18,7 @@ public class Main {
         //Test.test();
         //security.Test.test();
         //reflection.Test.test();
-        jdbc.Test.test();
+        //jdbc.Test.test();
+        regular.Test.test();
     }
 }
