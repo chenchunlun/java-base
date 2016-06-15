@@ -20,6 +20,7 @@ public class Main {
         //reflection.Test.test();
         //jdbc.Test.test();
         //regular.Test.test();
-        script.Test.test();
+        //script.Test.test();
+        javassist.Test.test();
     }
 }
