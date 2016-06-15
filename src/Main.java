@@ -21,6 +21,7 @@ public class Main {
         //jdbc.Test.test();
         //regular.Test.test();
         //script.Test.test();
-        javassist.Test.test();
+        //javassist.Test.test();
+        gof23.Test.test();
     }
 }
