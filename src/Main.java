@@ -24,6 +24,7 @@ public class Main {
         //javassist.Test.test();
         // enum_type.Test.test();
         //gof23.Test.test();
-        gof23.proxy.dynamicproxy.Test.test();
+       // gof23.proxy.dynamicproxy.Test.test();
+        gof23.proxy.dynamicproxy.timelog.Test.test();
     }
 }
