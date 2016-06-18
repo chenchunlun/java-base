@@ -26,6 +26,7 @@ public class Main {
         //gof23.Test.test();
        // gof23.proxy.dynamicproxy.Test.test();
         //gof23.proxy.dynamicproxy.timelog.Test.test();
-        loader.Test.test();
+        //loader.Test.test();
+        nestedclass.Test.test();
     }
 }
