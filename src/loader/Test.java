@@ -5,21 +5,42 @@ package loader;
  */
 public class Test {
     static {
-        System.out.println("静态初始化Test");
+        //System.out.println("静态初始化Test");
     }
 
-    /**\
+    /**
+     * \
      * 主动引用 new A
      * 调用类的静态成员  静态方法
      * 被动引用
      * 调用类的常量
      */
     public static void test() {
-//        A a = new A();
-//        System.out.println(A.width);
-//        A a2 = new A();
-        int a = B.width;
-       // A[] a = new A[10];
+        FileSystemClassLoader fileSystemClassLoader = new FileSystemClassLoader("F:");
+        FileSystemClassLoader fileSystemClassLoader2 = new FileSystemClassLoader("F:");
+
+        try {
+            Class<?> c = fileSystemClassLoader.loadClass("test");
+            Class<?> c1 = fileSystemClassLoader2.loadClass("test");
+            System.out.println(c.hashCode());
+            System.out.println(c1.hashCode());
+            Class<?> c3 = fileSystemClassLoader2.loadClass("test");
+            System.out.println(c3.getClassLoader());
+            System.out.println(fileSystemClassLoader2.loadClass("java.lang.String").getClassLoader());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void demo() {
+        System.out.println(ClassLoader.getSystemClassLoader());
+        System.out.println(ClassLoader.getSystemClassLoader().getParent());
+        System.out.println(ClassLoader.getSystemClassLoader().getParent().getParent());
+        System.out.println(System.getProperty("java.class.path"));
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        String a = "gaogao";
+        System.out.println(a.getClass().getClassLoader());
+        System.out.println(a);
     }
 }
 
@@ -37,6 +58,7 @@ public class Test {
 class A extends A_Father {
     public static int width = 300;
     public static final int max = 123;
+
     static {
         System.out.println("静态初始化A");
         width = 300;
@@ -53,7 +75,7 @@ class A_Father extends Object {
     }
 }
 
-class B extends A{
+class B extends A {
     static {
         System.out.println("静态初始化B");
     }
