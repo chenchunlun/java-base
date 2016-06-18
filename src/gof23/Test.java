@@ -10,6 +10,7 @@ package gof23;
  */
 public class Test {
     public static void test(){
-        System.out.println("设计模式");
+        //System.out.println("设计模式");
+        gof23.factory.simplefactory.Test.test();
     }
 }

@@ -1,0 +1,15 @@
+package gof23.factory.simplefactory;
+
+/**
+ * Created by hp on 2016/6/18 0018.
+ */
+public class CarFactory {
+    public static Car createCar(String type){
+        if("奥迪".equals(type)){
+            return new Audi();
+        } else if("比亚迪".equals(type)){
+            return  new Byd();
+        }
+        return null;
+    }
+}

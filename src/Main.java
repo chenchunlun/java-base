@@ -22,7 +22,7 @@ public class Main {
         //regular.Test.test();
         //script.Test.test();
         //javassist.Test.test();
-        enum_type.Test.test();
-        //gof23.Test.test();
+        // enum_type.Test.test();
+        gof23.Test.test();
     }
 }
