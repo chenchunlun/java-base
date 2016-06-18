@@ -25,6 +25,7 @@ public class Main {
         // enum_type.Test.test();
         //gof23.Test.test();
        // gof23.proxy.dynamicproxy.Test.test();
-        gof23.proxy.dynamicproxy.timelog.Test.test();
+        //gof23.proxy.dynamicproxy.timelog.Test.test();
+        loader.Test.test();
     }
 }
