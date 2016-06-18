@@ -23,6 +23,7 @@ public class Main {
         //script.Test.test();
         //javassist.Test.test();
         // enum_type.Test.test();
-        gof23.Test.test();
+        //gof23.Test.test();
+        gof23.proxy.staticproxy.Test.test();
     }
 }
