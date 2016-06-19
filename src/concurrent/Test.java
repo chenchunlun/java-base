@@ -1,6 +1,7 @@
 package concurrent;
 
 import concurrent.traditional.*;
+import thread.*;
 
 /**
  * Created by hp on 2016/6/18 0018.
@@ -13,6 +14,13 @@ public class Test {
       //  TraditionalThreadCommunication.test();
        // TraditionalThreadScopeShareData.test();
        // TraditionalThreadLocal.test();
-        TraditionalThreadMultiShareData.test();
+      //  TraditionalThreadMultiShareData.test();
+       // ThreadPool.test();
+        //CallableAndFuture.test();
+        //LockTest.test();
+        //ReadWriteTest.test();
+        //ConditionCommunication.test();
+        //SemaphoreTest.test();
+        CyclicBarrierTest.test();
     }
 }
