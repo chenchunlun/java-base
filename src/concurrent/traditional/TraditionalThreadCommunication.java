@@ -5,7 +5,7 @@ package concurrent.traditional;
  */
 public class TraditionalThreadCommunication {
     public static void test() {
-        Bussness bussness = new Bussness();
+        final Bussness bussness = new Bussness();
         new Thread(new Runnable() {
             @Override
             public void run() {

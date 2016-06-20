@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ConditionCommunication {
     public static void test() {
-        Bussness bussness = new Bussness(3);
+        final Bussness bussness = new Bussness(3);
         new Thread(new Runnable() {
             @Override
             public void run() {

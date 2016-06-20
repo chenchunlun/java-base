@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class ReadWriteTest {
     public static void test() {
-        Queue3 queue3 = new Queue3();
+        final Queue3 queue3 = new Queue3();
         for (int i = 0; i < 3; i++) {
             new Thread(new Runnable() {
                 @Override

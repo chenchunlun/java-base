@@ -5,7 +5,7 @@ package concurrent.traditional;
  */
 public class TraditionalThreadSynchronized {
     public static void test() {
-        OutPut outPut = new OutPut();
+        final OutPut outPut = new OutPut();
         new Thread(new Runnable() {
             @Override
             public void run() {

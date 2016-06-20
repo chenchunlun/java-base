@@ -6,7 +6,7 @@ package nestedclass;
 public class Demo4 {
    // int a = 3;
     public void test(){
-        int a = 3;
+        final int a = 3;
         class Inner{
             int b = 10;
             void test(){

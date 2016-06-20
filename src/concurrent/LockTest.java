@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class LockTest {
     public static void test() {
-        OutPut1 outPut = new OutPut1();
+        final OutPut1 outPut = new OutPut1();
         new Thread(new Runnable() {
             @Override
             public void run() {

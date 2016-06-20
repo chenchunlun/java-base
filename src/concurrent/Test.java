@@ -21,6 +21,8 @@ public class Test {
         //ReadWriteTest.test();
         //ConditionCommunication.test();
         //SemaphoreTest.test();
-        CyclicBarrierTest.test();
+        //CyclicBarrierTest.test();
+        //CountDownLatchTest.test();
+        ExchangeTest.test();
     }
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.Semaphore;
 public class SemaphoreTest {
     public static void test(){
         ExecutorService pool = Executors.newCachedThreadPool();
-        Semaphore sp = new Semaphore(3);
+        final Semaphore sp = new Semaphore(3);
         for(int i = 0;i<10;i++){
            pool.execute(new Runnable() {
                @Override

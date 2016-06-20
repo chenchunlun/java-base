@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 public class CyclicBarrierTest {
     public static void test(){
         ExecutorService pool = Executors.newCachedThreadPool();
-        CyclicBarrier cb = new CyclicBarrier(3);
+        final CyclicBarrier cb = new CyclicBarrier(3);
         for(int i=0;i<3;i++){
             pool.execute(new Runnable() {
                 @Override
