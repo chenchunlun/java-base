@@ -23,6 +23,8 @@ public class Test {
         //SemaphoreTest.test();
         //CyclicBarrierTest.test();
         //CountDownLatchTest.test();
-        ExchangeTest.test();
+       // ExchangeTest.test();
+        //ArrayBlockingQueueTest.test();
+        BlockingQueueCommucation.test();
     }
 }
