@@ -25,6 +25,8 @@ public class Test {
         //CountDownLatchTest.test();
        // ExchangeTest.test();
         //ArrayBlockingQueueTest.test();
-        BlockingQueueCommucation.test();
+       // BlockingQueueCommucation.test();
+        //ModifyExceptionTest.test();
+        LogTest.test();
     }
 }
