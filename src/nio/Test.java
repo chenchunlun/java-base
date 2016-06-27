@@ -13,10 +13,6 @@ public class Test {
         //WriteTest.test();
         //FileCopyTest.test();
 
-        ByteBuffer buffer = ByteBuffer.allocate(1024);
-        System.out.println(buffer.capacity());
-        System.out.println(buffer.limit());
-        System.out.println(buffer.position());
-        System.out.println(buffer.isReadOnly());
+        BufferFillDrain.test();
     }
 }
